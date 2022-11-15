@@ -10,6 +10,7 @@ public class GatewayServiceClientApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(GatewayServiceClientApplication.class, args);
+
     }
 
 }
