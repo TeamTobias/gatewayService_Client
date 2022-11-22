@@ -57,13 +57,14 @@ server:
   port: 80
 
 eureka:
-  instance:
-    hostname: localhost
   client:
     register-with-eureka: true
     fetch-registry: true
     service-url:
       defaultZone: http://localhost:8761/eureka
+
+
+
 
 spring:
   application:
@@ -102,33 +103,37 @@ spring:
         - id: review-read-service
           uri: lb://review-read-service
           predicates:
-              - Path=/review-read-service/**
+            - Path=/review-read-service/**
         - id: product-cud-service
           uri: lb://product-cud-service
           predicates:
-              - Path=/product-cud-service/**
+            - Path=/product-cud-service/**
         - id: product-read-service
           uri: lb://product-read-service
           predicates:
-              - Path=/product-read-service/**
+            - Path=/product-read-service/**
         - id: delivery-service
           uri: lb://delivery-service
           predicates:
-              - Path=/delivery-service/**
+            - Path=/delivery-service/**
         - id: order-service
           uri: lb://order-service
           predicates:
-              - Path=/order-service/**
+            - Path=/order-service/**
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
 
 
 management:
-    endpoints:
-        web:
-        exposure:
-            include: "*"
-    endpoint:
-        health:
-        show-details: always
+  endpoints:
+    web:
+    exposure:
+      include: "*"
+  endpoint:
+    health:
+    show-details: always
 ```
 
 - ``server.port``: 서버 포트를 80으로 설정
@@ -138,5 +143,7 @@ management:
 - ``eureka.client.service-url.defaultZone``: Eureka 서버의 기본 URL을 설정
 - ``spring.application.name``: 스프링 애플리케이션 이름을 gatewayService_Client로 설정
 - ``spring.cloud.gateway.routes``: 라우팅 정보를 설정
+- ``spring.cloud.gateway.discovery.locator.enabled``: 서비스 디스커버리를 사용할지 여부를 true로 설정
+- ``spring.cloud.gateway.discovery.locator.lower-case-service-id``: 서비스 디스커버리에서 가져온 서비스 ID를 소문자로 설정할지 여부를 true로 설정
 - ``management.endpoints.web.exposure.include``: 액추에이터의 모든 엔드포인트를 노출
 - ``management.endpoint.health.show-details``: 액추에이터의 헬스 엔드포인트에서 상세 정보를 노출
