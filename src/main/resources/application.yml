@@ -8,6 +8,9 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka
 
+
+
+
 spring:
   application:
     name: gatewayService_Client
@@ -62,6 +65,10 @@ spring:
           uri: lb://order-service
           predicates:
               - Path=/order-service/**
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
 
 
 management:
