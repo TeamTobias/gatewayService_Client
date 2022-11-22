@@ -17,54 +17,54 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: client-login-service
-          uri: lb://client-login-service
+        - id: client_loginService
+          uri: lb://client_loginService
           predicates:
-            - Path=/client-login-service/**
-        - id: client-service
-          uri: lb://client-service
+            - Path=/client_loginService/**
+        - id: client_Service
+          uri: lb://client_Service
           predicates:
-            - Path=/client-service/**
-        - id: coupon-service
-          uri: lb://coupon-service
+            - Path=/client_Service/**
+        - id: couponService
+          uri: lb://couponService
           predicates:
-            - Path=/coupon-service/**
-        - id: point-service
-          uri: lb://point-service
+            - Path=/couponService/**
+        - id: pointService
+          uri: lb://pointService
           predicates:
-            - Path=/point-service/**
-        - id: basket-service
-          uri: lb://basket-service
+            - Path=/pointService/**
+        - id: basket-service # TODO: Change this to basketService
+          uri: lb://basket-service # TODO: Change this to basketService
           predicates:
-            - Path=/basket-service/**
-        - id: recently-viewed-service
-          uri: lb://recently-viewed-service
+            - Path=/basket-service/** # TODO: Change this to basketService
+        - id: recentlyviewedService
+          uri: lb://recentlyviewedService
           predicates:
-            - Path=/recently-viewed-service/**
-        - id: review-cud-service
-          uri: lb://review-cud-service
+            - Path=/recentlyviewedService/**
+        - id: review_cudService
+          uri: lb://review_cudService
           predicates:
-            - Path=/review-cud-service/**
-        - id: review-read-service
-          uri: lb://review-read-service
+            - Path=/review_cudService/**
+        - id: review_readService
+          uri: lb://review_readService
           predicates:
-              - Path=/review-read-service/**
-        - id: product-cud-service
-          uri: lb://product-cud-service
+              - Path=/review_readService/**
+        - id: product_cudService
+          uri: lb://product_cudService
           predicates:
-              - Path=/product-cud-service/**
-        - id: product-read-service
-          uri: lb://product-read-service
+              - Path=/product_cudService/**
+        - id: product_readService
+          uri: lb://product_readService
           predicates:
-              - Path=/product-read-service/**
-        - id: delivery-service
-          uri: lb://delivery-service
+              - Path=/product_readService/**
+        - id: deliveryService
+          uri: lb://deliveryService
           predicates:
-              - Path=/delivery-service/**
-        - id: order-service
-          uri: lb://order-service
+              - Path=/deliveryService/**
+        - id: orderService
+          uri: lb://orderService
           predicates:
-              - Path=/order-service/**
+              - Path=/orderService/**
       discovery:
         locator:
           enabled: true
