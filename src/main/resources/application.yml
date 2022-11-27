@@ -49,10 +49,10 @@ spring:
           uri: lb://review-read-service
           predicates:
               - Path=/review-read-service/**
-        - id: product-cud-service
-          uri: lb://product-cud-service
+        - id: product-cudservice
+          uri: lb://product-cudservice
           predicates:
-              - Path=/product-cud-service/**
+              - Path=/product-cudservice/**
         - id: product-read-service
           uri: lb://product-read-service
           predicates:
