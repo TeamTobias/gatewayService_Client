@@ -1,5 +1,5 @@
 server:
-  port: 8000
+  port: 80
 
 eureka:
   client:
@@ -8,61 +8,74 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka
 
+
+
+
 spring:
   application:
     name: gatewayService_Client
   cloud:
     gateway:
       routes:
-        - id: client_loginService
-          uri: lb://client_loginService
+        - id: client-login-service
+          uri: lb://client-login-service
           predicates:
-            - Path=/client_loginService/**
-        - id: client_Service
-          uri: lb://client_Service
+            - Path=/client-login-service/**
+        - id: client-service
+          uri: lb://client-service
           predicates:
-            - Path=/client_Service/**
-        - id: couponService
-          uri: lb://couponService
+            - Path=/client-service/**
+        - id: coupon-service
+          uri: lb://coupon-service
           predicates:
-            - Path=/couponService/**
-        - id: pointService
-          uri: lb://pointService
+            - Path=/coupon-service/**
+        - id: point-service
+          uri: lb://point-service
           predicates:
-            - Path=/pointService/**
-        - id: basket-service # TODO: Change this to basketService
-          uri: lb://basket-service # TODO: Change this to basketService
+            - Path=/point-service/**
+        - id: basket-service
+          uri: lb://basket-service
           predicates:
-            - Path=/basket-service/** # TODO: Change this to basketService
-        - id: recentlyviewedService
-          uri: lb://recentlyviewedService
+            - Path=/basket-service/**
+        - id: recently-viewed-service
+          uri: lb://recently-viewed-service
           predicates:
-            - Path=/recentlyviewedService/**
-        - id: review_cudService
-          uri: lb://review_cudService
+            - Path=/recently-viewed-service/**
+        - id: review-cud-service
+          uri: lb://review-cud-service
           predicates:
-            - Path=/review_cudService/**
-        - id: review_readService
-          uri: lb://review_readService
+            - Path=/review-cud-service/**
+        - id: review-read-service
+          uri: lb://review-read-service
           predicates:
-            - Path=/review_readService/**
-        - id: product_cudService
-          uri: lb://product_cudService
+            - Path=/review-read-service/**
+        - id: product-cudservice
+          uri: lb://product-cudservice
           predicates:
-            - Path=/product_cudService/**
-        - id: product_readService
-          uri: lb://product_readService
+            - Path=/product-cudservice/**
+        - id: product-read-service
+          uri: lb://product-read-service
           predicates:
-            - Path=/product_readService/**
-        - id: deliveryService
-          uri: lb://deliveryService
+            - Path=/product-read-service/**
+        - id: delivery-service
+          uri: lb://delivery-service
           predicates:
-            - Path=/deliveryService/**
-        - id: orderService
-          uri: lb://orderService
+            - Path=/delivery-service/**
+        - id: order-service
+          uri: lb://order-service
           predicates:
-            - Path=/orderService/**
+            - Path=/order-service/**
       discovery:
         locator:
           enabled: true
           lower-case-service-id: true
+
+
+management:
+  endpoints:
+    web:
+    exposure:
+      include: "*"
+  endpoint:
+    health:
+    show-details: always
