@@ -28,7 +28,7 @@ spring:
         - id: coupon-service
           uri: lb://coupon-service
           predicates:
-            - Path=/coupon-service/**
+            - Path=/**
         - id: point-service
           uri: lb://point-service
           predicates:
