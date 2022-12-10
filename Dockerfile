@@ -2,7 +2,7 @@ FROM openjdk:17-jdk-alpine
 VOLUME /tmp
 ARG JAVA_OPTS
 ENV JAVA_OPTS=$JAVA_OPTS
-COPY build/libs/gatewayService_Client-0.0.1-SNAPSHOT.jar gatewayservice_client.jar
+COPY build/libs/gatewayService_Client-1.0.jar gatewayservice_client.jar
 EXPOSE 80
 #ENTRYPOINT exec java $JAVA_OPTS -jar discoveryservice.jar
 # For Spring-Boot project, use the entrypoint below to reduce Tomcat startup time.
