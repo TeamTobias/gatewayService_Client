@@ -34,5 +34,6 @@ jobs:
           file: ./Dockerfile-CICD
           platforms: linux/amd64
           push: true
-          tags: 1.0
+          tags:
+            - imkunyoung/gatewayservice_client:1.0
           labels: ${{ steps.docker_meta.outputs.labels }}
