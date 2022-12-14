@@ -35,5 +35,5 @@ jobs:
           platforms: linux/amd64
           push: true
           tags:
-            - imkunyoung/gatewayservice_client:1.0
+            - imkunyoung/gatewayservice_client:${{ 1.0 }}
           labels: ${{ steps.docker_meta.outputs.labels }}
