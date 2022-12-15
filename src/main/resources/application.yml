@@ -70,12 +70,8 @@ spring:
           enabled: true
           lower-case-service-id: true
 
-
 management:
-    endpoints:
-        web:
-        exposure:
-            include: "*"
-    endpoint:
-        health:
-        show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
