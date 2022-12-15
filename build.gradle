@@ -23,6 +23,8 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'io.projectreactor:reactor-test'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+    implementation 'io.micrometer:micrometer-registry-prometheus:1.10.2'
 }
 
 dependencyManagement {
